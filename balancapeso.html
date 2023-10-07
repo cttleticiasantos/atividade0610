@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesos</title>
+</head>
+<body>
+    <h3>Balança</h3>
+     
+    <p>Nome 1: <span id="nome1"></span></p>
+    <p>Peso 1: <span id="peso1"></span></p>
+    <p>Nome 2: <span id="nome2"></span></p>
+    <p>Peso 2: <span id="peso2"></span></p>
+    <p>Nome 3: <span id="nome3"></span></p>
+    <p>Peso 3: <span id="peso3"></span></p>
+    <p>Resultado: <span id="resultado"></span></p>
+
+    <script> 
+        let nome1 = prompt("Digite um nome:");
+        let peso1 = Number(prompt("Digite o peso:"));
+        let nome2 = prompt("Digite outro nome:");
+        let peso2 = Number(prompt("Digite outro peso:"));
+        let nome3 = prompt("Digite mais um nome:");
+        let peso3 = Number(prompt("Digite o último peso:"));
+
+        let pesos = [
+            { nome: nome1, valor: peso1 },
+            { nome: nome2, valor: peso2 },
+            { nome: nome3, valor: peso3 }
+        ];
+
+        pesos.sort(function(a, b) {
+            return b.valor - a.valor;
+        });
+
+        let ordem = pesos.map(function(item) {
+            return item.nome + ": " + item.valor + " kg ";
+        }).join(", ");
+
+        document.getElementById("resultado").innerHTML =  ordem;    
+        document.getElementById("nome1").innerHTML = nome1;
+        document.getElementById("peso1").innerHTML = peso1 + " kg ";
+        document.getElementById("nome2").innerHTML = nome2;
+        document.getElementById("peso2").innerHTML = peso2 + " kg ";
+        document.getElementById("nome3").innerHTML = nome3;
+        document.getElementById("peso3").innerHTML = peso3 + " kg ";
+    </script>
+</body>
+</html>

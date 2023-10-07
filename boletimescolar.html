@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim</title>
+</head>
+<body>
+    <h3>Boletim Escolar</h3>
+    <p>Nome do aluno: <span id="aluno"></span></p>
+    <p>Nota 1: <span id="n1"></span></p>
+    <p>Nota 2: <span id="n2"></span></p>
+    <p>Nota 3: <span id="n3"></span></p>
+    <p>Situação: <span id="situacao"></span></p>
+    <p>Nota em ordem decrescente: <span id="ndecre"></span></p>
+
+    <script>
+        let aluno = prompt("Digite o nome do aluno");
+        let n1 = Number(prompt("Digite a nota 1"));
+        let n2 = Number(prompt("Digite a nota 2"));
+        let n3 = Number(prompt("Digite a nota 3"));
+
+        let ma;
+        let mb;
+        let mc;
+        let media = (n1 + n2 + n3) / 3;
+        let situacao;
+
+        switch (true) {
+            case n1 > n2 && n1 > n3:
+                ma = n1;
+                if (n2 > n3) {
+                    mb = n2;
+                    mc = n3;
+                } else {
+                    mb = n3;
+                    mc = n2;
+                }
+                break;
+            case n2 > n1 && n2 > n3:
+                ma = n2;
+                if (n1 > n3) {
+                    mb = n1;
+                    mc = n3;
+                } else {
+                    mb = n3;
+                    mc = n1;
+                }
+                break;
+            case n3 >= n1 && n3 > n2:
+                ma = n3;
+                if (n2 > n1) {
+                    mb = n2;
+                    mc = n1;
+                } else {
+                    mb = n1;
+                    mc = n2;
+                }
+                break;
+            case n1 === n2 && n1 === n3:
+                ma = n1;
+                mb = n2;
+                mc = n3;
+                break;
+            default:
+                ma = 0;
+                mb = 0;
+                mc = 0;
+                break;
+        }
+
+        if (media >= 7) {
+            situacao = "Aprovado";
+        } else {
+            situacao = "Reprovado";
+        }
+
+        document.getElementById('aluno').innerHTML = aluno;
+        document.getElementById('n1').innerHTML = n1;
+        document.getElementById('n2').innerHTML = n2;
+        document.getElementById('n3').innerHTML = n3;
+        document.getElementById('situacao').innerHTML = situacao;
+        document.getElementById('ndecre').innerHTML = ma + " , " + mb + " , " + mc;
+    </script>
+</body>
+</html>

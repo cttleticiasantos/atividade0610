@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comissão</title>
+</head>
+<body>
+    <h4> Comissão</h4>
+    <div id = "funcionario"></div>
+    <div id = "quantidade"></div>
+    <div id = "comissao"></div>
+    
+<script>
+
+    let funcionario = (prompt("Digite o nome do(a) funcionário(a):"));
+    let quantidade = Number (prompt("Digite a quantidade de produtos vendidos:"));
+
+    let comissao = quantidade*1.00;
+   
+      switch (true) {
+            case quantidade >500:
+            comissao = quantidade * 2.00;
+                break;
+            case quantidade >250:
+            comissao = quantidade * 1.50;                
+            break;
+            default:
+                resultado = "Esta média é inválida";
+                break;
+        }
+
+    document.getElementById("comissao").innerHTML = "O(A) funcionário(a) " + funcionario + " receberá a comissão de R$ " + comissao + ",00";
+</script>  
+
+</body>
+</html>
